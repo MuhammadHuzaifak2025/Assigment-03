@@ -1,0 +1,50 @@
+//One of the master coders designed a subscript block that stores random characters in a
+//multidimensional array. You are asked to design a program that will find a given string in a
+//multidimensional array of characters. The search for characters can be present and operational from
+//left to right and top to down only. The program should create a 6 x 5 2D array and populate it with
+//random alphabet characters. After that, the program should print it in a tabular form as shown
+//below.
+//Search the user-entered string in the 2D array, if it is present then add a point to the score, if it is
+//
+//not available then subtract one. Print the score at every input. The program stops asking and re-
+//populates the 2D array with new random characters when the user enters “END” as the string.
+//
+//[NOTE: After generating random numbers, the last row should have your student ID’s last four
+//digits]
+//Example:
+//Array:
+//E D D F R R
+//A F V A Q R
+//T E B S T A
+//L J G T T A
+//1 2 3 4 Q K
+//
+//Search Str= ‘FAST’
+//Output:
+//FAST is present? Score 1
+//EAT is present? Score 2
+//GREAT is not present ? Score 1
+
+
+#include<stdio.h>
+#include<string.h>
+main(){
+	char table[5][6]= {"abcdefghijklmnopqrstuvxyz"[rand() % 26]};
+	int i,j;
+	
+	for(i = 0; i<5;i++){
+		for(j=0;j<6;j++){
+			table[i][j] ="abcdefghijklmnopqrstuvxyz`"[rand() % 26];
+		}
+		
+		
+	}
+	for(i = 0; i<5;i++){
+		for(j=0;j<6;j++){
+//			table[i][j] = printf("%c\n","ABCDEFGHIJKLMNOPQRSTUVWXYZ"[rand() % 26]);
+			printf("%c",table[i][j]);
+		}
+		
+		printf("\n")	;
+	}
+}
