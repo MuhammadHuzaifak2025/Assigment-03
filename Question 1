@@ -29,7 +29,7 @@
 #include<stdio.h>
 #include<string.h>
 main(){
-	char table[5][6]= {"abcdefghijklmnopqrstuvxyz"[rand() % 26]};
+	char table[5][6];
 	int i,j;
 	
 	for(i = 0; i<5;i++){
@@ -46,5 +46,28 @@ main(){
 		}
 		
 		printf("\n")	;
+	}
+	for(i = 0; i<5;i++){
+		for(j=0;j<6;j++){
+			table[i][j] =(NULL);
+		}
+		
+		
+	}
+	for(i = 0; i<5;i++){
+		for(j=0;j<6;j++){
+			table[i][j] = "%c\n","ABCDEFGHIJKLMNOPQRSTUVWXYZ"[rand() % 26];
+			printf("%c",table[i][j]);
+		}
+		
+		printf("\n")	;
+	}
+	for(i = 0; i<5;i++){
+		for(j=0;j<6;j++){
+//			table[i][j] = printf("%c\n","ABCDEFGHIJKLMNOPQRSTUVWXYZ"[rand() % 26]);
+			printf("%c",table[i][j]);
+		}
+		
+		printf("\n");
 	}
 }
