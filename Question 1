@@ -43,7 +43,7 @@ int main(){
             table[i][j] = (rand()%(upper - lower + 1)+lower);
 		}
 		
-		
+
 	}
 	for(i = 0; i<5;i++){
 		for(j=0;j<6;j++){
@@ -53,15 +53,32 @@ int main(){
 		
 		printf("\n")	;
 	}
-	puts("Enter \"Exit\" to regenerate Random letters OR Enter search to find strings");
+	puts("Enter \"Exit\" to regenerate Random letters OR Enter Search to find strings");
 	
 	scanf("%s",&inp);
-	if(strcmp(inp,"Search" ) == 0)
-	{
-//		search();
+	if(strcmp(inp,"Search" ) == 0){
+	 printf("Enter Strings to find");
+	 char search_arr[5];
+	 int pass=0;
+	 scanf("%s",&search_arr);
+	for(i=0; i<5; i++){
+		for(j=0; j<6;j++){
+			 if(search_arr[j] == table[j][i]){
+			 	pass++;
+			 }
+			 if(pass ==5){
+			 	printf("String found");
+			 }
+			
+		}	
+		
 	}
-	else if(strcmp(inp,"Exit" ) == 0){
+		
+		
+	}
 	
+	else if(strcmp(inp,"Exit" ) == 0){
+
 }
 	else{
 		printf("You Entered Invalid option program exits");
