@@ -33,7 +33,7 @@
 int main(){
 	char table[5][6];
 	int i,j;
-	int upper = 122, lower = 97;
+	int upper = 83, lower = 65;
 	char inp[10];
 	do{
 	
@@ -42,8 +42,6 @@ int main(){
 //			table[i][j] ="abcdefghijklmnopqrstuvxyz"[rand() % 26];
             table[i][j] = (rand()%(upper - lower + 1)+lower);
 		}
-		
-
 	}
 	for(i = 0; i<5;i++){
 		for(j=0;j<6;j++){
@@ -54,25 +52,30 @@ int main(){
 		printf("\n")	;
 	}
 	puts("Enter \"Exit\" to regenerate Random letters OR Enter Search to find strings");
-	
+	int k;
 	scanf("%s",&inp);
 	if(strcmp(inp,"Search" ) == 0){
 	 printf("Enter Strings to find");
 	 char search_arr[5];
 	 int pass=0;
 	 scanf("%s",&search_arr);
-	for(i=0; i<5; i++){
-		for(j=0; j<6;j++){
-			 if(search_arr[j] == table[j][i]){
-			 	pass++;
-			 }
-			 if(pass ==5){
-			 	printf("String found");
-			 }
-			
-		}	
-		
-	}
+//	for(i=0; i<5; i++){
+//		for(j=0; j<6;j++){
+//		printf("%s",table);
+//		printf("%s",search_arr);
+			 char *found_string = strstr(table,search_arr);
+    printf("%c",*found_string);
+    if (found_string == NULL)
+    {
+        printf ("String not found");
+    } 
+    else
+    {
+        printf ("String Found");
+   }		
+//		if(pass ==0){
+//			 	printf("String found %d",k);
+//	}
 		
 		
 	}
