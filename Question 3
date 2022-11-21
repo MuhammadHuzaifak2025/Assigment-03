@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<string.h>
+void display_userdef_func(char func_name[25]){
+	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined func is: %s",func_name);
+
+}
+#define n 10
+struct Students{
+	char student_id[7];
+	char name[25];
+	int mid1;
+	int mid2;
+	int final;
+	int assigment[5];
+	int quiz[5];
+}student[n];
+//
+//	int search(){ // Evaluation of an array
+//	int i,pass;
+//	char id[7];
+//	printf("Enter Id: ");
+//		scanf("%s",&id);		 
+//	for(i=0; i<n; i++){
+//		if(strcmp(student[i].student_id,id)== 0){
+//			printf("The user Already Exsist");
+//			pass = 0;
+//				
+//		}
+//}
+
+void get_new_user(void){
+	int j,k;
+	int  i,empty;
+	char id[7];
+	
+	for(j=0; j<n ;j++){
+
+	for(i=0; i<n; i++){
+		
+		if(strlen(student[i].student_id) == 0 ){
+		
+		} 
+		
+	}
+	Retake:
+	
+	printf("Enter User ID: ");
+	scanf("%s",id);
+	
+		for(k=0; k<n;k++){
+			if(strcmp(id, student[k].student_id)!=0){
+				printf("The User already exsist, plz enter another id");
+				goto Retake; 
+			}
+			else{
+				strcpy(id,student[i].student_id);
+				
+			}
+		}
+	
+	printf("Enter User name: ");
+	scanf("%s",student[i].name);
+	printf("Enter Mid 1 marks of %s: ",student[i].name);
+	scanf("%d",&student[i].mid1);
+	printf("Enter Mid 2 Marks of %s: ",student[i].name);
+	scanf("%d",&student[i].mid2);
+	printf("Enter Quiz Marks of %s: ",student[i].name);
+	scanf("%d",&student[i].quiz);
+	printf("Enter Assigment Marks of %s: ",student[i].name);
+	scanf("%d",&student[i].assigment);	
+	printf("Enter Finals Marks of %s: ",student[i].name);
+	scanf("%d",&student[i].final);	
+			}
+}
+
+main(){
+	display_userdef_func("STUDENTS");
+	get_new_user();
+}
