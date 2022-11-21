@@ -31,6 +31,7 @@
 #include<string.h>
 //void search void 
 int main(){
+	int pass=0;
 	char table[5][6];
 	int i,j;
 	int upper = 83, lower = 65;
@@ -57,7 +58,7 @@ int main(){
 	if(strcmp(inp,"Search" ) == 0){
 	 printf("Enter Strings to find");
 	 char search_arr[5];
-	 int pass=0;
+	 
 	 scanf("%s",&search_arr);
 	 int index =0, len=strlen(search_arr);
 	 
@@ -65,28 +66,34 @@ int main(){
 		for(j=0;j<6;j++){
 			int k=0;
 			while(k!=len){
-				k++;
+			k++;
 			if(search_arr[j]==table[i][j]){
 				index++;
-				pass =1;
-				printf("\n ind: %d\t",index);
-				printf("len: %d\n",len);}
-			}
-			if(index == len){
-				printf("String found at row %d",i);
-				break;
+				pass++;
+				if(search_arr[j]==table[i][j]){
+					break;
+					pass =0;
+				}
+//				printf("\n ind: %d\t",index);
+//				printf("len: %d\n",len);
+//				printf("k: %d\n",k);
 			
+				}
+				
 			}
-			else{
-			pass =0;
-			break;
-	}
+			
+			if(index == len){
+				pass=1;
+				printf("String found at row %d",i+1);
+				break;
+			}
+
 		}
-		k=0;
+
 		index =0;
 		
 	}
-	if(pass == 0){
+	if(pass != 1){
 		printf("String not found");
 	}
 }
