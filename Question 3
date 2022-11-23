@@ -1,18 +1,18 @@
 #include<stdio.h>
 #include<string.h>
 void display_userdef_func(char func_name[25]){
-	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined func is: %s\n",func_name);
+	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined function called is: %s\n",func_name);
 
 }
 #define n 10
 struct Students{
 	char student_id[15];
 	char name[25];
-	int mid1;
-	int mid2;
-	int final;
-	int assigment[5];
-	int quiz[5];
+	float mid1;
+	float mid2;
+	float final;
+	float assigment;
+	float quiz;
 }student[n];
 //
 //	int search(){ // Evaluation of an array
@@ -45,6 +45,15 @@ int search(char id [7]){
 	
 }// End of search searches if any id is already entered.
 
+int check(int i){
+	printf("i : %d", i);
+	float sum;
+	sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
+	printf("YOR SUM IS %f", sum);
+	if(sum > 100){ // return o on true
+	return 1;}
+}
+
 void getGpa(void){
 	char  id[15];
 	
@@ -53,26 +62,35 @@ void getGpa(void){
 		printf("Enter User id: ");
 		scanf("%s",id);
 		if(search(id)==1){
+
 			printf("Enter User name: ");
 			scanf("%s",student[i].name);
-			printf("Enter Mid 1 marks of %s: ",student[i].name);
+				retakemarks:
+			printf("Enter Mid 1 weightage of %s: ",student[i].name);
 			scanf("%d",&student[i].mid1);
-			printf("Enter Mid 2 Marks of %s: ",student[i].name);
+			printf("Enter Mid 2 weightage of %s: ",student[i].name);
 			scanf("%d",&student[i].mid2);
-			printf("Enter Quiz Marks of %s: ",student[i].name);
+			printf("Enter Quiz weightage of %s: ",student[i].name);
 			scanf("%d",&student[i].quiz);
-			printf("Enter Assigment Marks of %s: ",student[i].name);
+			printf("Enter Assigment weightage of %s: ",student[i].name);
 			scanf("%d",&student[i].assigment);	
-			printf("Enter Finals Marks of %s: ",student[i].name);
+			printf("Enter Finals weightage of %s: ",student[i].name);
 			scanf("%d",&student[i].final);	
+			if(check(i) == 1){
+				display_userdef_func("check");
+				printf("Entered Marks cannot exceed 100, re-enter marks");
+				goto retakemarks;
+			}
 		}
+		
 		else{
+			display_userdef_func("search");
 			goto retake;
 		}
 	}		
 }
 
-main(){
+int main(){
 	display_userdef_func("STUDENTS");
 	printf("Populate student datails\n");
 	getGpa();
