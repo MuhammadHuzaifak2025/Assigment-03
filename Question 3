@@ -28,6 +28,30 @@ struct Students{
 //				
 //		}
 //}
+void smart_Find(void){
+	int i;
+	printf("Enter Id to search");
+	char id[15];
+	scanf("%s",id);
+	for( i =0; i<n;i++){
+		if(strcmp(id,student[i].student_id)==0){
+			printf("Name: %s\n", student[i].name);
+			printf("Mid 1 marks: %f\n", student[i].mid1);
+			printf("Mid 2 marks: %f\n", student[i].mid2);
+			printf("Quiz marks: %f\n", student[i].quiz);
+			printf("Assigment marks: %f\n", student[i].assigment);
+			printf("Final marks: %f\n", student[i].final);
+			printf("GPA: %f\n", student[i].GPA);
+			sleep(3);
+
+			break;
+		}
+		else{
+			printf("NOT FOUND\n");
+		}
+	}
+
+}
 int search(char id [7], int j){
 	int pass;
 	for(int i =0; i<n;i++){
@@ -159,16 +183,17 @@ void calGpa(void){
 		for(int i=0; i<n; i++){
 			printf("\n%s\t",student[i].student_id);
 			printf("%s\t",student[i].name);
-			printf("%f",student[i].GPA);
+			printf("%f\n",student[i].GPA);
 		}
 		
 	}
 int main(){
 	char options;
+	calGpa();
 	re_teks:
-	printf("Enter Option g to get and evaluate GPA \n enter a for printing GPA \n Enter r for replacing at seven index \n Enter f for finding detail of student \n press s for printing statistics of class and \n Enter e to exit\n");
+	printf("Enter Option g to get and evaluate GPA \n Enter a for printing GPA \n Enter r for replacing at seven index \n Enter f for finding detail of student \n Enter s for printing statistics of class and \n Enter e to exit\n");
 	printf("Select: ");
-	scanf("%c",&options);
+	scanf("%s",& options);
 	switch (options){
 		case 'g':
 		display_userdef_func("STUDENTS");
@@ -180,9 +205,17 @@ int main(){
 		calGpa();
 		print_table();
 		break;
-		default:
-			printf("Invalid option opted");
+		
+		case 'e':
+			printf("Exiting Program");
+			sleep(1);
+			exit(1);
+		case 'f':
+			smart_Find();
 			break;
+		default:
+		printf("Invalid option opted Re enter: \n\n");
+		break;
 			
 	}
 	goto re_teks;
