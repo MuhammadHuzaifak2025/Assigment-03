@@ -46,10 +46,8 @@ int search(char id [7]){
 }// End of search searches if any id is already entered.
 
 int check(int i){
-	printf("i : %d", i);
 	float sum;
 	sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
-	printf("YOR SUM IS %f", sum);
 	if(sum > 100){ // return o on true
 	return 1;}
 }
@@ -62,23 +60,22 @@ void getGpa(void){
 		printf("Enter User id: ");
 		scanf("%s",id);
 		if(search(id)==1){
-
 			printf("Enter User name: ");
 			scanf("%s",student[i].name);
 				retakemarks:
 			printf("Enter Mid 1 weightage of %s: ",student[i].name);
-			scanf("%d",&student[i].mid1);
+			scanf("%f",&student[i].mid1);
 			printf("Enter Mid 2 weightage of %s: ",student[i].name);
-			scanf("%d",&student[i].mid2);
+			scanf("%f",& student[i].mid2);
 			printf("Enter Quiz weightage of %s: ",student[i].name);
-			scanf("%d",&student[i].quiz);
+			scanf("%f",&student[i].quiz);
 			printf("Enter Assigment weightage of %s: ",student[i].name);
-			scanf("%d",&student[i].assigment);	
+			scanf("%f",&student[i].assigment);	
 			printf("Enter Finals weightage of %s: ",student[i].name);
-			scanf("%d",&student[i].final);	
+			scanf("%f",&student[i].final);	
 			if(check(i) == 1){
 				display_userdef_func("check");
-				printf("Entered Marks cannot exceed 100, re-enter marks");
+				printf("Entered Marks cannot exceed 100, re-enter marks\n");
 				goto retakemarks;
 			}
 		}
