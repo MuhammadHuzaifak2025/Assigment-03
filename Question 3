@@ -231,13 +231,7 @@ void calGpa(void){
 		}
 			
 	int count(){
-		int count=0;	
-	for(int i=0;i<n;i++){
-			if(student[i].student_id == ""){
-				                 
-			}
-			
-		}
+		int count = n;
 		return count;
 	}
 	
@@ -250,14 +244,63 @@ void calGpa(void){
 	printf("The avg of the mid1 is: %f\n", avg);
 	return avg;
 	}
+	int avg_mid2(){
+		float mid_total;
+		for(int i=0; i<n; i++){
+		mid_total = mid_total+student[i].mid2;
+	}
+	float avg = mid_total/count();
+	printf("The avg of the mid2 is: %f\n", avg);
+	return avg;
+		
+	}
+		avg_final(){
+			float mid_total;
+		for(int i=0; i<n; i++){
+		mid_total = mid_total+student[i].final;
+	}
+	float avg = mid_total/count();
+	printf("The avg of the Final is: %f\n", avg);
+	return avg;
+		
+	}
+		avg_total(){
+		float sum= 0;
+		float avg= 0;
+		for(int i=0; i<count(); i++){
+			char grade[3];
+			sum += student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
+			
+			}
+		avg = sum/count();
+		printf("THE avg of total student is: %f\n",avg);
+		return avg;
+		}
+	
+	max(){
+		int sum=0, max_i =0;
+		float max=0;
+		float temp;
+		for(int i=0; i<count(); i++){
+			sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
+			if(sum>max){
+				max =sum;
+				max_i =i;
+				
+			}
+			}
+			 
+			printf("The Max is %f of %s\n",max, student[max_i].name);
+	}
+
 void statistics(void){
 	
 	printf("The Number of people is %d", count());
 	avg_mid1();
-//	avg_mid2();
-//	avg_final():
-//	avg_total();
-//	max();
+	avg_mid2();
+	avg_final();
+	avg_total();
+	max();
 //	fail();
 }
 		
