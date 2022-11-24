@@ -5,10 +5,10 @@ void display_userdef_func(char func_name[25]){
 	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined function called is: %s\n",func_name);
 
 }
-#define n 3
+#define n 1
 struct Students{
-	char student_id[15];
-	char name[25];
+	char student_id[20];
+	char name[50];
 	float mid1;
 	float mid2;
 	float final;
@@ -236,40 +236,44 @@ void calGpa(void){
 	}
 	
 	int avg_mid1(){
-		float mid_total;
+		float mid_total=0;
 		for(int i=0; i<n; i++){
-		mid_total = mid_total+student[i].mid1;
+		mid_total += mid_total+student[i].mid1;
 	}
 	float avg = mid_total/count();
 	printf("The avg of the mid1 is: %f\n", avg);
 	return avg;
 	}
+	
+	
 	int avg_mid2(){
-		float mid_total;
+		float mid_total=0;
 		for(int i=0; i<n; i++){
-		mid_total = mid_total+student[i].mid2;
+		mid_total += mid_total+student[i].mid2;
 	}
 	float avg = mid_total/count();
 	printf("The avg of the mid2 is: %f\n", avg);
 	return avg;
 		
 	}
+	
+	
 		avg_final(){
-			float mid_total;
+			float mid_total=0;
 		for(int i=0; i<n; i++){
-		mid_total = mid_total+student[i].final;
+		mid_total += mid_total+student[i].final;
 	}
 	float avg = mid_total/count();
 	printf("The avg of the Final is: %f\n", avg);
 	return avg;
 		
 	}
+	
 		avg_total(){
 		float sum= 0;
 		float avg= 0;
-		for(int i=0; i<count(); i++){
-			char grade[3];
-			sum += student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
+		for(int i=0; i<n; i++){
+			sum = sum + student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
 			
 			}
 		avg = sum/count();
@@ -280,7 +284,6 @@ void calGpa(void){
 	max(){
 		int sum=0, max_i =0;
 		float max=0;
-		float temp;
 		for(int i=0; i<count(); i++){
 			sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
 			if(sum>max){
@@ -292,7 +295,14 @@ void calGpa(void){
 			 
 			printf("The Max is %f of %s\n",max, student[max_i].name);
 	}
-
+	fail(){
+			calGpa();
+			for(int i=0; i<n;i++){
+				if(student[i].GPA < 2){
+					printf("The student failed are %s\n",student[i].name);
+				}
+			}
+	}
 void statistics(void){
 	
 	printf("The Number of people is %d", count());
@@ -301,7 +311,7 @@ void statistics(void){
 	avg_final();
 	avg_total();
 	max();
-//	fail();
+	fail();
 }
 		
 int main(){
