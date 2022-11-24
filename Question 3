@@ -5,7 +5,7 @@ void display_userdef_func(char func_name[25]){
 	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined function called is: %s\n",func_name);
 
 }
-#define n 1
+#define n 337
 struct Students{
 	char student_id[20];
 	char name[50];
