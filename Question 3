@@ -4,7 +4,7 @@ void display_userdef_func(char func_name[25]){
 	printf("Name: Muhammad Huzaifa, id: 22k-4337, and User defined function called is: %s\n",func_name);
 
 }
-#define n 1
+#define n 3
 struct Students{
 	char student_id[15];
 	char name[25];
@@ -79,9 +79,9 @@ int check(int i){
 
 void getGpa(void){
 	char  id[15];
-	
 	for(int i = 0; i<n;i++){
 		retake:	
+
 		printf("Enter User id: ");
 		scanf("%s",id);
 		if(search(id, i)==1){
@@ -98,21 +98,28 @@ void getGpa(void){
 			scanf("%f",&student[i].assigment);	
 			printf("Enter Finals weightage of %s: ",student[i].name);
 			scanf("%f",&student[i].final);	
-			if(check(i) == 1){
-				display_userdef_func("check");
 				printf("Entered Marks cannot exceed 100, re-enter marks\n");
 				goto retakemarks;
 			}
-		}
+		
 		
 		else{
 			display_userdef_func("search");
 			goto retake;
 		}
+			
+			char breaks;
+			printf("Do you want to continue(y/n)");
+			breaks = getche(breaks);
+			if(breaks == 'n'){
+				printf("n");
+			break;
+			
+		}
 	}		
 }
 void calGpa(void){
-		for(int i=0; i<n; i++){
+		for(int i=0; i<count(); i++){
 			float sum;
 			char grade[3];
 			sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
@@ -187,13 +194,76 @@ void calGpa(void){
 		}
 		
 	}
+	void replace(int i){
+		char id[15];
+		retake:	
+		printf("Enter User id: ");
+		scanf("%s",id);
+			printf("Enter User name: ");
+			scanf("%s",student[i].name);
+				retakemarks:
+			printf("Enter Mid 1 weightage of %s: ",student[i].name);
+			scanf("%f",&student[i].mid1);
+			printf("Enter Mid 2 weightage of %s: ",student[i].name);
+			scanf("%f",& student[i].mid2);
+			printf("Enter Quiz weightage of %s: ",student[i].name);
+			scanf("%f",&student[i].quiz);
+			printf("Enter Assigment weightage of %s: ",student[i].name);
+			scanf("%f",&student[i].assigment);	
+			printf("Enter Finals weightage of %s: ",student[i].name);
+			scanf("%f",&student[i].final);	
+			if(check(i) == 1){
+				display_userdef_func("check");
+				printf("Entered Marks cannot exceed 100, re-enter marks\n");
+				goto retakemarks;
+			}
+		
+		
+		else{
+			display_userdef_func("search");
+			goto retake;
+		}
+		}
+			
+	int count(){
+		int count=0;	
+	for(int i=0;i<n;i++){
+			if(student[i].student_id == ""){
+				                 
+			}
+			
+		}
+		return count;
+	}
+	
+	int avg_mid1(){
+		float mid_total;
+		for(int i=0; i<n; i++){
+		mid_total = mid_total+student[i].mid1;
+	}
+	float avg = mid_total/count();
+	printf("The avg of the mid1 is: %f\n", avg);
+	return avg;
+	}
+void statistics(void){
+	
+	printf("The Number of people is %d", count());
+	avg_mid1();
+//	avg_mid2();
+//	avg_final():
+//	avg_total();
+//	max();
+//	fail();
+}
+		
 int main(){
 	char options;
 	calGpa();
 	re_teks:
-	printf("Enter Option g to get and evaluate GPA \n Enter a for printing GPA \n Enter r for replacing at seven index \n Enter f for finding detail of student \n Enter s for printing statistics of class and \n Enter e to exit\n");
+	printf(" Enter g to get and evaluate GPA \n Enter a for printing GPA \n Enter r for replacing at seven index \n Enter f for finding detail of student \n Enter s for printing statistics of class and \n Enter e to exit\n");
 	printf("Select: ");
 	scanf("%s",& options);
+	int x;
 	switch (options){
 		case 'g':
 		display_userdef_func("STUDENTS");
@@ -212,6 +282,14 @@ int main(){
 			exit(1);
 		case 'f':
 			smart_Find();
+			break;
+		case 'r':
+			
+			printf("Enter Location at which you want to replace");
+			scanf("%d",&x);
+			replace(x-1);
+		case 's':
+			statistics();
 			break;
 		default:
 		printf("Invalid option opted Re enter: \n\n");
