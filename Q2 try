@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include <string.h>
+	
+
+int main() {
+   char input[50] = {""};
+   char str2[10][50] = {""};
+   int i=0,j=0;
+   printf("22k4337 MMuhammad Huzaifa\n Enter string to encrypt: ");
+   gets(input);
+   // Extract the first token
+   char * token = strtok(input, " ");
+   // loop through the string to extract all other tokens
+   while( token != NULL ) {
+//      printf( " %s\n", token ); //printing each token
+      strcpy(str2[i], token);
+      i++;
+      token = strtok(NULL, " ");
+   }
+   char str1[10]= "";
+   char temp1[5] = "", temp2[5] = "";
+   // first condtion for shifting to right
+   for(i=0; i<10; i++){
+   	for(int j =0; j<50; j++){
+   		int len  =strlen(str2[i]);
+   		if(str2[i][j] == 'a' || str2[i][j] == 'e' || str2[i][j] == 'i' || str2[i][j] == 'o' || str2[i][j] == 'u' ){
+		   	str1[j]= str2[i][j];
+			int k = j-1;
+			int f = k;
+			int pos;
+			for(k; k>=0; k-- ){	// picks up first letter to move at the end
+				temp1[k] = str2[i][k];
+			}
+			strcat(str1,strrev(temp1) );
+					printf("str1 %s", str1);
+			for(f; f<len; f++ ){	// picks up first letter to move at the end
+				temp2[i] = str2[i][f];
+			}
+			printf("%s", temp2);
+		   	}
+
+	   }
+	   
+   }
+   return 0;
+}
