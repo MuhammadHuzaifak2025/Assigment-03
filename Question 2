@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include <string.h>
+
+int main() {
+   char input[50] = {""};
+   char str2[10][50] = {""};
+   int i=0,j=0;
+   printf("22k4337 MMuhammad Huzaifa\n Enter string to encrypt: ");
+   gets(input);
+   // Extract the first token
+   char * token = strtok(input, " ");
+   // loop through the string to extract all other tokens
+   while( token != NULL ) {
+//      printf( " %s\n", token ); //printing each token
+      strcpy(str2[i], token);
+      i++;
+      token = strtok(NULL, " ");
+   }
+   for(i=0; i<10; i++){
+   	printf("%s\n",str2[i]);
+   }
+   return 0;
+}
