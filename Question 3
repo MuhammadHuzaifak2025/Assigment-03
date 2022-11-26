@@ -55,8 +55,8 @@ void smart_Find(void){
 
 
 int search(char id [7], int j){
-	int pass;
-	for(int i =0; i<n;i++){
+	int i, pass;
+	for(i =0; i<n;i++){
 		if(strcmp(id,student[i].student_id)!=0){
 			pass = 1;
 			strcpy(student[j].student_id,id);
@@ -81,7 +81,8 @@ int check(int i){
 
 void getGpa(void){
 	char  id[15];
-	for(int i = 0; i<n;i++){
+	int i;
+	for(i = 0; i<n;i++){
 		retake:	
 
 		printf("Enter User id: ");
@@ -124,7 +125,8 @@ void getGpa(void){
 }
 
 void calGpa(void){
-		for(int i=0; i<count(); i++){
+	int i;
+		for(i=0; i<count(); i++){
 			float sum;
 			char grade[3];
 			sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
@@ -191,8 +193,9 @@ void calGpa(void){
 		}
 	}
 	void print_table(){
+		int i;
 		printf("ID\tNAME\tGPA");
-		for(int i=0; i<n; i++){
+		for( i=0; i<n; i++){
 			printf("\n%s\t",student[i].student_id);
 			printf("%s\t",student[i].name);
 			printf("%f\n",student[i].GPA);
@@ -201,7 +204,7 @@ void calGpa(void){
 	}
 	void replace(int i){
 		char id[15];
-		retake:	
+		
 		printf("Enter User id: ");
 		scanf("%s",id);
 			printf("Enter User name: ");
@@ -224,10 +227,7 @@ void calGpa(void){
 			}
 		
 		
-		else{
-			display_userdef_func("search");
-			goto retake;
-		}
+		
 		}
 			
 	int count(){
@@ -236,8 +236,9 @@ void calGpa(void){
 	}
 	
 	int avg_mid1(){
+		int i;
 		float mid_total=0;
-		for(int i=0; i<n; i++){
+		for(i=0; i<n; i++){
 		mid_total += mid_total+student[i].mid1;
 	}
 	float avg = mid_total/count();
@@ -248,7 +249,8 @@ void calGpa(void){
 	
 	int avg_mid2(){
 		float mid_total=0;
-		for(int i=0; i<n; i++){
+		int i;
+		for(i=0; i<n; i++){
 		mid_total += mid_total+student[i].mid2;
 	}
 	float avg = mid_total/count();
@@ -260,7 +262,8 @@ void calGpa(void){
 	
 		avg_final(){
 			float mid_total=0;
-		for(int i=0; i<n; i++){
+		int i;
+		for(i=0; i<n; i++){
 		mid_total += mid_total+student[i].final;
 	}
 	float avg = mid_total/count();
@@ -272,7 +275,8 @@ void calGpa(void){
 		avg_total(){
 		float sum= 0;
 		float avg= 0;
-		for(int i=0; i<n; i++){
+		int i;
+		for(i=0; i<n; i++){
 			sum = sum + student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
 			
 			}
@@ -284,7 +288,8 @@ void calGpa(void){
 	max(){
 		int sum=0, max_i =0;
 		float max=0;
-		for(int i=0; i<count(); i++){
+		int i;
+		for(i=0; i<count(); i++){
 			sum = student[i].assigment + student[i].final + student[i].mid1 + student[i].mid2 + student[i].quiz;
 			if(sum>max){
 				max =sum;
@@ -297,7 +302,8 @@ void calGpa(void){
 	}
 	fail(){
 			calGpa();
-			for(int i=0; i<n;i++){
+			int i;
+			for(i=0; i<n;i++){
 				if(student[i].GPA < 2){
 					printf("The student failed are %s\n",student[i].name);
 				}
@@ -306,6 +312,7 @@ void calGpa(void){
 void statistics(void){
 	
 	printf("The Number of people is %d", count());
+	
 	avg_mid1();
 	avg_mid2();
 	avg_final();
@@ -343,10 +350,8 @@ int main(){
 			smart_Find();
 			break;
 		case 'r':
-			
-			printf("Enter Location at which you want to replace");
-			scanf("%d",&x);
-			replace(x-1);
+			replace(6);
+			break;
 		case 's':
 			statistics();
 			break;
