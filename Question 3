@@ -194,10 +194,10 @@ void calGpa(void){
 	}
 	void print_table(){
 		int i;
-		printf("ID\tNAME\tGPA");
+		printf("ID\t\tNAME\t\tGPA");
 		for( i=0; i<n; i++){
-			printf("\n%s\t",student[i].student_id);
-			printf("%s\t",student[i].name);
+			printf("\n%s\t\t",student[i].student_id);
+			printf("%s\t\t",student[i].name);
 			printf("%f\n",student[i].GPA);
 		}
 		
