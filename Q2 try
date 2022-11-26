@@ -17,16 +17,25 @@ int main() {
       i++;
       token = strtok(NULL, " ");
    }
-   char str1[10]= "";
+   char output[10][50] = {""};
    char vowel[2]= "";
-   char temp1[5] = "", temp2[5] = "";
+//   strcpy("")
+   char temp1[3] = "", temp2[5] = "";
    // first condtion for shifting to right
+   printf("22k4337");
    for(i=0; i<10; i++){
    	int j;
    	for(j =0; j<50; j++){
-   		int len  =strlen(str2[i]);
-   		
-   		if(str2[i][j] == 'a' || str2[i][j] == 'e' || str2[i][j] == 'i' || str2[i][j] == 'o' || str2[i][j] == 'u' ){
+   		int len  =0;
+		   len =strlen(str2[i]);
+   		 if(str2[i][0] == 'a' || str2[i][0] == 'e' || str2[i][0] == 'i' || str2[i][0] == 'o' || str2[i][0] == 'u' ){
+			strcpy(output[i], str2[i]);
+			strcat(output[i], "ay");
+			continue;
+		}
+
+		  else if(str2[i][j] == 'a' || str2[i][j] == 'e' || str2[i][j] == 'i' || str2[i][j] == 'o' || str2[i][j] == 'u' ){
+			
 			vowel[0]= str2[i][j];
 			int k = j-1;
 			int f = j-1;
@@ -34,18 +43,29 @@ int main() {
 			for(k; k>=0; k-- ){	// picks up first letter to move at the end
 				temp1[k] = str2[i][k];
 			}
-			for(f; f<len; f++){
-				str1[pos] = str2[i][f+2];
+			for(f; f<len; f++){ //moves letter ahead of vowel to start
+				output[i][pos] = str2[i][f+2];
 				pos++;
 			}
-			strcat(str1,vowel );
-			strcat(str1,strrev(temp1) );
-					printf("str1 %s", str1);
+			strcat(output[i],vowel );
+			strcat(output[i],strrev(temp1) );
+			strcat(output[i],"ay" );
+			
+				;
 			
 		   	}
 
+
 	   }
-	   
+	   int n =0;
+	   for(n=0; n<5; n++){
+	   	temp1[n] = '\0';
+	   }
+//	   strcpy(temp1);
+   }
+   int out =0;
+   for(out=0; out<10;out++){
+   	printf("%s\t",output[out]);
    }
    return 0;
 }
